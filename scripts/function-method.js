@@ -65,3 +65,37 @@ function showDb(isPrivate) {
         console.log("Ma'lumot mahfiy saqlanmoqda")
     }
 }
+
+
+// string methods
+
+let text = 'Hello World';
+let password = '    password     ';
+
+//Length is property
+
+console.log('text uzunligi', text.length);
+
+
+// Methods
+
+console.log('Aniq positsiyali indexdagi harf', text.charAt(2));
+console.log('Harflarni katta registerda qilish', text.toUpperCase());
+console.log('Harflarni kichik registerda qilish', text.toLowerCase());
+console.log('Harfni kesish', text.slice(0, 4));  // can also give negative positions (0, -4)
+console.log('Harfni kesish', text.substring(0, 4));
+console.log('Ikki tarafdan bo\'sh space olib tashlash', password.trim());
+console.log('Boshidan space olib tashlash', text.trimStart());
+console.log('Oxiridan space olib tashlash', text.trimEnd());
+
+// Number methods
+
+const number = 12.6
+const width = '240.42px'
+
+console.log('sonni eng yaqiniga o\'giradi', Math.round(number));
+console.log('sonni butun qilib beradi', Math.floor(number));
+console.log('String ma\'lumot turidan butun sonni qaytarib beradi', parseInt(width));
+console.log('String ma\'lumot turidan butun son qilib beradi', parseFloat(width));
+
+
