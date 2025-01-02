@@ -210,7 +210,7 @@ window.addEventListener('DOMContentLoaded', () => {
     ]
 
     offers.forEach(offer => {
-        const { src, alt, descr, discount, sale, title } = offer
+        const { src, alt, descr, discount, sale, title } = offer // destructuring offers array into reusable offer to avoid writing offer.src and so on.
         new OfferMenu(src, alt, title, descr, discount, sale, ".offers-items").render()
     })
 })
