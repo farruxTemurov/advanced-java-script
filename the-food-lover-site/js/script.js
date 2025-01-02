@@ -147,5 +147,70 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    const modalTimerId = setTimeout(openModal, 4000)
+    const modalTimerId = setTimeout(openModal, 5000)
+
+    // Offer class
+
+    class OfferMenu {
+        constructor(src, alt, title, descr, discount, sale, parentSelector) {
+            this.src = src,
+                this.alt = alt,
+                this.title = title,
+                this.descr = descr,
+                this.discount = discount,
+                this.sale = sale,
+                this.parent = document.querySelector(parentSelector),
+                this.formatToUSD()
+        }
+
+        formatToUSD() {
+            this.discount = this.discount.toLocaleString('en-Us', { style: "currency", currency: "USD" })
+            this.sale = this.sale.toLocaleString('en-Us', { style: "currency", currency: "USD" })
+        }
+
+        render() {
+            const element = document.createElement('div')
+            element.innerHTML = `
+                <img src="${this.src}" alt="${this.alt}">
+				<div>
+					<h3>${this.title}</h3>
+					<p>${this.descr}</p>
+					<p><del>${this.discount}</del> <span class="primary-text">${this.sale}</span></p>
+				</div>
+            `
+            this.parent.append(element);
+        }
+    }
+
+    const offers = [
+        {
+            src: "./img/offer1.png",
+            alt: "Quattro Pasta",
+            title: "Quattro Pasta",
+            descr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, quibusdam.",
+            discount: 55,
+            sale: 20,
+        },
+        {
+            src: "./img/offer2.png",
+            alt: "Vegertarian Pasta",
+            title: "Vegertarian Pasta",
+            descr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, quibusdam.",
+            discount: 75,
+            sale: 25,
+        },
+        {
+            src: "./img/offer3.png",
+            alt: "Gluten-Free Pasta",
+            title: "Gluten-Free Pasta",
+            descr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, quibusdam.",
+            discount: 25,
+            sale: 15,
+        }
+    ]
+
+    offers.forEach(offer => {
+        const { src, alt, descr, discount, sale, title } = offer
+        new OfferMenu(src, alt, title, descr, discount, sale, ".offers-items").render()
+    })
 })
