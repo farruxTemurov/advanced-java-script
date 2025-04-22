@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		document.querySelectorAll('.delete').forEach((trashBtn, index) => {
 			trashBtn.addEventListener('click', () => {
 				trashBtn.parentElement.remove()
-				seriesDB.series.splice(index, 1)
+				seriesDB.series.splice(index, 1)  // removes one item starting from that index
 				setList()
 			})
 		})
